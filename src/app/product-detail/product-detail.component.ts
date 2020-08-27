@@ -16,12 +16,39 @@ export class ProductDetailComponent implements OnInit {
     private productService: ProductsService
   ) { }
   
-  ngOnInit(): void {
-    this.route.params.subscribe((params: Params)=> {
-      const id = params.id
-      this.product = this.productService.getProduct(id)
-      console.log(this.product)
+  ngOnInit(){
+    this.route.params.subscribe((params: Params) => {
+      const id = params.id;
+      //this.product = this.ProductService.getProduct(id);
+      //console.log(this.product);
+      this.fetchProduct(id)
     });
   }
 
+  fetchProduct(id: string){
+    this.productService.getProduct(id)
+    .subscribe(product => {
+      this.product = product
+    })
+  }
+
+  createProduct(){
+    const newProduct = {
+      id: 'YYYYYY',
+      title: 'de donde eres?',
+      image: 'https://estadosunidos.embajada.gov.co/sites/default/files/styles/news_slide/public/news/main-image/pieza-grafica.jpeg?itok=Du8PueQR',
+      description: "yo soy de colombia",
+      price: 12000
+    }
+    this.productService.createProduct(newProduct).subscribe(product =>{
+      console.log(product)
+      });
+  }
+
+  deleteProduct(id){
+    this.productService.deleteProduct('22').subscribe(rta =>{
+      console.log(rta)
+      });
+  }
+  
 }
