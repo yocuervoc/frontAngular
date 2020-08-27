@@ -29,6 +29,8 @@
             ],
             "styles": [
               "./node_modules/swiper/dist/css/swiper.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/flexboxgrid/dist/flexboxgrid.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TulFront-End"
+    }
+  },
+  "defaultProject": "TulFront-End",
+  "cli": {
+    "analytics": "d31f1ad7-9298-4297-bcaf-f43a0e248ad3"
+  }
 }
